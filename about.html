@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কেন DeenQuest?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f4a;
+            --primary-dark: #0d3f32;
+            --secondary: #2d8a6e;
+            --accent: #e9c46a;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: linear-gradient(180deg, #e8f5e9 0%, #f0fdf4 100%);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            font-size: 1.3rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            background: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            text-align: center;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>❓ কেন DeenQuest?</h1>
+        <p>এই প্রজেক্ট সম্পর্কে</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 হোম</a>
+        <a href="plan.html">📅 প্ল্যান</a>
+        <a href="day-1/index.html">📖 আজকের দিন</a>
+        <a href="about.html" class="active">❓ কেন</a>
+    </nav>
+
+    <div class="container">
+        <!-- Main Message -->
+        <div class="highlight">
+            <h2>🎯 এটি কেন?</h2>
+            <p>এটি একটি structured ইসলাম শেখার প্ল্যান - দিনে দিনে, ধাপে ধাপে।<br>শুরু থেকে গভীর পর্যন্ত - সব বয়সের জন্য।</p>
+        </div>
+
+        <!-- Why This Project -->
+        <div class="card">
+            <h2>🤔 কেন এই প্রজেক্ট?</h2>
+            <p>অনেকেই ইসলাম সম্পর্কে জানতে চায়, কিন্তু:</p>
+            <ul class="feature-list">
+                <li><span class="feature-icon">❌</span> জানি না কোথা থেকে শুরু করব</li>
+                <li><span class="feature-icon">❌</span> জানি না কোন ক্রমে শেখা উচিত</li>
+                <li><span class="feature-icon">❌</span> অনেক কিছু একসাথে মনে রাখতে পারি না</li>
+                <li><span class="feature-icon">❌</span> প্রতিদিন পড়া ফেলে দিই</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>DeenQuest</strong> এই সমস্যার সমাধান - একটি <strong>day-by-day, step-by-step</strong> প্ল্যান।</p>
+        </div>
+
+        <!-- Who Is This For -->
+        <div class="card">
+            <h2>👥 কার জন্য?</h2>
+            <ul class="feature-list">
+                <li><span class="feature-icon">🧒</span> ১০+ বয়সের বাচ্চা যে ইসলাম শেখা শুরু করছে</li>
+                <li><span class="feature-icon">👱</span> তরুণ যে Deen সম্পর্কে জানতে চায়</li>
+                <li><span class="feature-icon">👨</span> বড় যে নিজের জ্ঞান আরও গভীর করতে চায়</li>
+                <li><span class="feature-icon">👩</span> মা-বাবা যে সন্তানকে ইসলাম শেখাতে চায়</li>
+            </ul>
+        </div>
+
+        <!-- What's Included -->
+        <div class="card">
+            <h2>📚 কী কী শেখা হবে?</h2>
+            <ul class="feature-list">
+                <li><span class="feature-icon">🌱</span> <strong>ফেজ ১:</strong> ভিত্তি - আল্লাহ, কালিমা, ইমান, সালাত</li>
+                <li><span class="feature-icon">🕌</span> <strong>ফেজ ২:</strong> ইবাদত - ওযু, নামাজ, রোজা, যাকাত</li>
+                <li><span class="feature-icon">📖</span> <strong>ফেজ ৩:</strong> কুরআন ও সীরাহ</li>
+                <li><span class="feature-icon">⚖️</span> <strong>ফেজ ৪:</strong> আকিদা ও ফিকহ</li>
+                <li><span class="feature-icon">🧠</span> <strong>ফেজ ৫:</strong> আরবি ও তাফসীর</li>
+                <li><span class="feature-icon">🎓</span> <strong>ফেজ ৬:</strong> স্কলার লেভেল</li>
+            </ul>
+        </div>
+
+        <!-- Method -->
+        <div class="card">
+            <h2>📖 কীভাবে শেখা হবে?</h2>
+            <ul class="feature-list">
+                <li><span class="feature-icon">🇧🇩</span> দ্বিভাষিক: বাংলা + ইংরেজি</li>
+                <li><span class="feature-icon">🎮</span> গ্যামিফাইড: মজা করে শেখা</li>
+                <li><span class="feature-icon">🧠</span> গভীর: শুধু মুখস্থ নয়, বুঝে শেখা</li>
+                <li><span class="feature-icon">📱</span> মোবাইল-ফ্রেন্ডলি</li>
+                <li><span class="feature-icon">🔄</span> ট্র্যাকযোগ্য: যেখানে থেমেছিলাম সেখান থেকে</li>
+            </ul>
+        </div>
+
+        <!-- Hadith -->
+        <div class="quote">
+            "জ্ঞান অন্বেষণ প্রতিটি মুসলমানের উপর ফরজ"<br>
+            <small>— হাদিস (ইব्नে মাজাহ)</small>
+        </div>
+    </div>
+
+    <footer>
+        <p>🌿 DeenQuest</p>
+        <p>Made with ❤️ for seekers of Islamic knowledge</p>
+    </footer>
+</body>
+</html>

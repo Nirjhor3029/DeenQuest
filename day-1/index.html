@@ -428,12 +428,18 @@
         <div class="arabic" style="font-size: 1.5rem; margin: 1rem 0;">
             بِسْمِ اللَّهِ
         </div>
-        <button onclick="playAudio('bismillah')">
-            <span>▶️</span> বিসমিল্লাহ শুনুন
-        </button>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-            (আরবি উচ্চারণ শেখার জন্য ���া��� বার শুনুন)
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+            উচ্চারণ: <strong>বিসমিল্লাহ</strong> (Bi-smil-lah)
         </p>
+        <div style="background: #f0fdf4; padding: 1rem; border-radius: 10px; text-align: center;">
+            <p style="margin-bottom: 0.5rem;">🎧 শুনতে চাইলে:</p>
+            <a href="https://www.youtube.com/results?search_query=bismillah+tilawa" target="_blank" style="display: inline-block; background: #c4302b; color: white; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none;">
+                ▶️ YouTube এ শুনুন
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                অথবা <a href="https://www.mp3quran.net/" target="_blank">mp3quran.net</a> থেকে "AlFatih" সুরা শুনুন
+            </p>
+        </div>
     </section>
 
     <!-- Dua Card -->
@@ -586,22 +592,10 @@
         <a href="#" class="btn-next">পরের দিন →</a>
     </footer>
 
-    <!-- Audio Player (Hidden) -->
-    <audio id="bismillah-audio">
-        <source src="https://download.quranicaudio.com/quran/Alafasy_128kbps/001.mp3" type="audio/mp3">
-    </audio>
-
     <script>
         // Track progress
         let correctAnswers = 0;
         const totalQuestions = 6;
-
-        // Audio playback
-        function playAudio(type) {
-            const audio = document.getElementById('bismillah-audio');
-            audio.currentTime = 0;
-            audio.play();
-        }
 
         // Quiz answer check
         function checkAnswer(element, isCorrect) {

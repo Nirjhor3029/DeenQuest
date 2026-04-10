@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্ল্যান - DeenQuest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f4a;
+            --primary-dark: #0d3f32;
+            --secondary: #2d8a6e;
+            --accent: #e9c46a;
+            --bg-grad: #f0fdf4;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: linear-gradient(180deg, #e8f5e9 0%, var(--bg-grad) 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        header h1 { font-size: 1.8rem; }
+
+        nav {
+            background: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .phase-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .phase-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .day-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .day-item {
+            background: #f8faf9;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .day-item:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .day-item.completed {
+            background: #d1fae5;
+            border-color: #22c55e;
+        }
+
+        .day-item.current {
+            background: var(--accent);
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+
+        .day-item.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .day-item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .day-number {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .day-topic {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .progress-summary {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            height: 100%;
+            width: 3%;
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+
+        .progress-text {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .day-list { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📅 DeenQuest Learning Plan</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 হোম</a>
+        <a href="plan.html" class="active">📅 প্ল্যান</a>
+        <a href="day-1/index.html">📖 আজকের দিন</a>
+        <a href="about.html">❓ কেন</a>
+    </nav>
+
+    <div class="container">
+        <!-- Progress Summary -->
+        <div class="progress-summary">
+            <h2>📊 আমার অগ্রগতি</h2>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="progress-text">৩% সম্পন্ন · ১/৩৬৫ দিন</p>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Phase 1: Foundation</p>
+        </div>
+
+        <!-- Phase 1: Foundation -->
+        <div class="phase-section">
+            <h2>🌱 Phase 1: Muslim Foundation</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ১-৩০ · আল্লাহ, কালিমা, ইমান, ৫ স্তম্ভ, সুরা, দোয়া</p>
+            <div class="day-list">
+                <div class="day-item current">
+                    <a href="day-1/index.html">
+                        <div class="day-number">১</div>
+                        <div class="day-topic">আল্লাহ কে?</div>
+                    </a>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">২</div>
+                    <div class="day-topic">নেয়ামত</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৩</div>
+                    <div class="day-topic">কালিমা</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৪</div>
+                    <div class="day-topic">৬ ইমান</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৫</div>
+                    <div class="day-topic">৫ স্তম্ভ</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৬</div>
+                    <div class="day-topic">সুরা ফাতিহা</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৭</div>
+                    <div class="day-topic">সুরা ইকলাস</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৮</div>
+                    <div class="day-topic">সুরা ফালাক</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">৯</div>
+                    <div class="day-topic">সুরা নাস</div>
+                </div>
+                <div class="day-item locked">
+                    <div class="day-number">১০</div>
+                    <div class="day-topic">সুরা কওছার</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">+ ২০ more days →</p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="phase-section">
+            <h2>🕌 Phase 2: Worship & Daily Life</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ৩১-৬০ · ওযু, সালাত, সিয়াম, যাকাত</p>
+            <div class="day-list">
+                <div class="day-item locked"><div class="day-number">৩১</div><div class="day-topic">ওযু</div></div>
+                <div class="day-item locked"><div class="day-number">৩২</div><div class="day-topic">ঘুসল</div></div>
+                <div class="day-item locked"><div class="day-number">৩৩</div><div class="day-topic">নামাজ</div></div>
+                <div class="day-item locked"><div class="day-number">৩৪</div><div class="day-topic">রাকাত</div></div>
+                <div class="day-item locked"><div class="day-number">৩৫</div><div class="day-topic">তাশাহহুদ</div></div>
+                <div class="day-item locked"><div class="day-number">৩৬</div><div class="day-topic">দুরুদ</div></div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">⏳ Coming soon</p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="phase-section">
+            <h2>📖 Phase 3: Quran & Seerah</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ৬১-৯০ · কুরআন, তাফসীর, সীরাহ</p>
+            <div class="day-list">
+                <div class="day-item locked"><div class="day-number">৬১</div><div class="day-topic">জুজ আম্মা</div></div>
+                <div class="day-item locked"><div class="day-number">৬২</div><div class="day-topic">তাফসীর</div></div>
+                <div class="day-item locked"><div class="day-number">৬৩</div><div class="day-topic">নবীর জন্ম</div></div>
+                <div class="day-item locked"><div class="day-number">৬৪</div><div class="day-topic">মক্কা</div></div>
+                <div class="day-item locked"><div class="day-number">৬৫</div><div class="day-topic">মদিনা</div></div>
+                <div class="day-item locked"><div class="day-number">৬৬</div><div class="day-topic">হিজরত</div></div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">⏳ Coming soon</p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="phase-section">
+            <h2>⚖️ Phase 4: Aqidah & Fiqh</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ৯১-১২০ · আকিদা, ফিকহ, হাদিস</p>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">⏳ Coming soon</p>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="phase-section">
+            <h2>🧠 Phase 5: Arabic & Tafsir</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ১২১-১৮০ · আরবি, তাফসীর, উসূল</p>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">⏳ Coming soon</p>
+        </div>
+
+        <!-- Phase 6 -->
+        <div class="phase-section">
+            <h2>🎓 Phase 6: Scholar</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">দিন ১৮১-৩৬৫ · মাযহাব, তুলনা, আধুনিক</p>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted);">⏳ Coming soon</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>📅 ৩৬৫ দিনের যাত্রা · ৬টি ফেজ</p>
+        <p style="margin-top: 0.5rem;">"জ্ঞান অন্বেষণ প্রতিটি মুসলমানের উপর ফরজ"</p>
+    </footer>
+</body>
+</html>
