@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইসলাম জার্নি - দিন ১ | আল্লাহ কে?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&family=Harmattan&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a5f4a;
+            --secondary: #2d8a6e;
+            --accent: #f4a261;
+            --gold: #e9c46a;
+            --bg: #fafafa;
+            --text: #333;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .arabic {
+            font-family: 'Harmattan', 'Noto Naskh Arabic', serif;
+            font-size: 1.3em;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--gold);
+            height: 100%;
+            width: 3%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(180deg, #e8f5e9 0%, var(--bg) 100%);
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .topic {
+            font-size: 1.3rem;
+            background: var(--accent);
+            color: white;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            margin: 1rem;
+            padding: 1.2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Knowledge Graph SVG */
+        .knowledge-graph {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+            border-radius: 16px;
+            margin: 1rem;
+        }
+
+        .knowledge-graph svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Audio Player */
+        .audio-player {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .audio-player button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .audio-player button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Interactive Quiz */
+        .quiz-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1rem;
+        }
+
+        .quiz-option {
+            display: block;
+            background: white;
+            margin: 0.5rem 0;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--secondary);
+        }
+
+        .quiz-option.correct {
+            background: #d1fae5;
+            border-color: #059669;
+        }
+
+        .quiz-option.wrong {
+            background: #fee2e2;
+            border-color: #dc2626;
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Stars & Rewards */
+        .stars-container {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .star {
+            font-size: 2rem;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+
+        .star.earned {
+            opacity: 1;
+            animation: starPop 0.5s ease;
+        }
+
+        @keyframes starPop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Practice Tasks */
+        .task {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.8rem;
+            background: #f8fafc;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .task-checkbox.checked {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Character Mission */
+        .character-mission {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1rem;
+            border: 2px solid #ec4899;
+        }
+
+        /* Dua Card */
+        .dua-card {
+            background: linear-gradient(135deg, #1a5f4a 0%, #2d8a6e 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .dua-card .arabic-text {
+            font-size: 1.8rem;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .dua-card .meaning {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .video-placeholder {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        /* Footer Navigation */
+        footer {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        footer a {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .btn-prev {
+            background: #e5e5e5;
+            color: #666;
+        }
+
+        .btn-next {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.4rem; }
+            .card { margin: 0.8rem; padding: 1rem; }
+            .dua-card .arabic-text { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="phase-info">🌱 ফেজ ১ · দিন ১</div>
+        <h1>ইসলাম জার্নি</h1>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero fade-in">
+        <h1>আল্লাহ কে?</h1>
+        <div class="topic">🎯 আজকের মিশন</div>
+    </section>
+
+    <!-- Knowledge Graph -->
+    <section class="card">
+        <h2>🧠 জ্ঞান মানচিত্র</h2>
+        <div class="knowledge-graph">
+            <svg width="300" height="200" viewBox="0 0 300 200">
+                <!-- Central Node: Allah -->
+                <circle cx="150" cy="100" r="35" fill="#1a5f4a"/>
+                <text x="150" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="bold">আল্লাহ</text>
+                
+                <!-- Branches -->
+                <line x1="150" y1="65" x2="80" y2="30" stroke="#2d8a6e" stroke-width="2"/>
+                <line x1="150" y1="65" x2="220" y2="30" stroke="#2d8a6e" stroke-width="2"/>
+                <line x1="150" y1="135" x2="80" y2="170" stroke="#2d8a6e" stroke-width="2"/>
+                <line x1="150" y1="135" x2="220" y2="170" stroke="#2d8a6e" stroke-width="2"/>
+                
+                <!-- Branch Nodes -->
+                <circle cx="80" cy="30" r="25" fill="#2d8a6e"/>
+                <text x="80" y="35" text-anchor="middle" fill="white" font-size="11">সৃষ্টিকর্তা</text>
+                
+                <circle cx="220" cy="30" r="25" fill="#2d8a6e"/>
+                <text x="220" y="35" text-anchor="middle" fill="white" font-size="11">ভালোবাসেন</text>
+                
+                <circle cx="80" cy="170" r="25" fill="#2d8a6e"/>
+                <text x="80" y="175" text-anchor="middle" fill="white" font-size="11">সব দেখেন</text>
+                
+                <circle cx="220" cy="170" r="25" fill="#2d8a6e"/>
+                <text x="220" y="175" text-anchor="middle" fill="white" font-size="11">জান্নাত</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 1: Who is Allah? -->
+    <section class="card fade-in">
+        <h2>🧠 ১) আল্লাহ কে?</h2>
+        <p>আল্লাহ হলেন আমাদের <strong>সৃষ্টিকর্তা</strong> (Creator)।</p>
+        <br>
+        <p>তিনি আকাশ, পৃথিবী, সূর্য, চাঁদ, তারা, পাহাড়, নদী, গাছ, পাখি, মানুষ — সবকিছু সৃষ্টি করেছেন।</p>
+        <br>
+        <p style="background: #f0fdf4; padding: 1rem; border-radius: 10px; border-left: 4px solid #22c55e;">
+            💡 <strong>উদাহরণ:</strong> কোনো কিছু নিজে নিজে হয়ে যায় না। যেমন একটা খেলনা গাড়ি নিজে নিজে তৈরি হতে পারে না — কেউ না কেউ বানায়। ঠিক তেমনি এই পুরো পৃথিবীর একজন মহান সৃষ্টিকর্তা আছেন। তিনি হলেন <strong>আল্লাহ</strong>।
+        </p>
+    </section>
+
+    <!-- Section 2: Why did Allah create us? -->
+    <section class="card fade-in">
+        <h2>❤️ ২) আল্লাহ কেন আমাদের সৃষ্টি করেছেন?</h2>
+        <p>আল্লাহ আমাদের সৃষ্টি করেছেন:</p>
+        <ul style="margin: 1rem; line-height: 2;">
+            <li>✓ তাঁকে <strong>চিনার</strong> জন্য</li>
+            <li>✓ তাঁকে <strong>ভালোবাসার</strong> জন্য</li>
+            <li>✓ তাঁর আদেশ <strong>মানার</strong> জন্য</li>
+            <li>✓ <strong>ভালো মানুষ</strong> হওয়ার জন্য</li>
+            <li>✓ <strong>জান্নাত</strong> অর্জনের জন্য</li>
+        </ul>
+        <p style="background: #fce7f3; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+            💖 সহজভাবে: আল্লাহ চান আমরা সত্যবাদী, দয়ালু এবং ভালো মানুষ হই।
+        </p>
+    </section>
+
+    <!-- Section 3: Allah always sees us -->
+    <section class="card fade-in">
+        <h2>👀 ৩) আল্লাহ সবসময় আমাদের দেখেন</h2>
+        <p>তুমি যদি একা থাকো, তবুও আল্লাহ তোমাকে দেখেন।</p>
+        <br>
+        <p>তুমি ভালো কাজ করলে তিনি জানেন। তুমি ভুল করলে সেটাও তিনি জানেন।</p>
+        <br>
+        <p style="background: #e0f2fe; padding: 1rem; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+            ⚠️ এটা ভয় পাওয়ার জন্য না — এটা মনে রাখার জন্য যে আল্লাহ সবসময় আমাদের সাথে সম্পর্ক রাখেন এবং আমাদের ভালো চান।
+        </p>
+    </section>
+
+    <!-- Audio: Bismillah -->
+    <section class="audio-player fade-in">
+        <h2>🎧 আজকের আয়াত শুনুন</h2>
+        <div class="arabic" style="font-size: 1.5rem; margin: 1rem 0;">
+            بِسْمِ اللَّهِ
+        </div>
+        <button onclick="playAudio('bismillah')">
+            <span>▶️</span> বিসমিল্লাহ শুনুন
+        </button>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+            (আরবি উচ্চারণ শেখার জন্য ���া��� বার শুনুন)
+        </p>
+    </section>
+
+    <!-- Dua Card -->
+    <section class="dua-card fade-in">
+        <h2 style="color: white;">🧠 আজকের মুখস্থ</h2>
+        <div class="arabic">
+            بِسْمِ اللَّهِ
+        </div>
+        <div style="font-size: 1.2rem; margin: 0.5rem 0; color: #ffd700;">
+            বিসমিল্লাহ
+        </div>
+        <div class="meaning">
+            <strong>অর্থ:</strong> আমি আল্লাহর নামে শুরু করছি।
+        </div>
+    </section>
+
+    <!-- Gamification: Universe Detective -->
+    <section class="card fade-in">
+        <h2>🎮 মহাবিশ্ব গোয়েন্দা</h2>
+        <p style="margin-bottom: 1rem;">আমি কিছু বলবো — তুমি উত্তর দিবে <strong>"আল্লাহ"</strong></p>
+        
+        <div class="quiz-section" id="detective-quiz">
+            <p><strong>প্রশ্ন ১:</strong> আকাশ কে বানিয়েছে?</p>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">আল্লাহ</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">মানুষ</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">প্রকৃতি</div>
+            
+            <p style="margin-top: 1rem;"><strong>প্রশ্ন ২:</strong> গাছ কে বানিয়েছে?</p>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">আল্লাহ</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">মানুষ</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">মাটি</div>
+            
+            <p style="margin-top: 1rem;"><strong>প্রশ্ন ৩:</strong> তুমি কে বানিয়েছে?</p>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">আল্লাহ</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">মা-বাবা</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">ডাক্তার</div>
+        </div>
+
+        <div class="quiz-result" id="quiz-result">
+            🎉 সব সঠিক! তুমি ৫⭐ পেলে!
+        </div>
+
+        <div class="stars-container">
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+            <span class="star">⭐</span>
+        </div>
+    </section>
+
+    <!-- Practice Tasks -->
+    <section class="card fade-in">
+        <h2>🛠️ আজকের কাজ</h2>
+        
+        <div class="task" onclick="toggleTask(this)">
+            <div class="task-checkbox">✓</div>
+            <div>
+                <strong>কাজ ১:</strong> যে কোনো কাজ শুরু করার আগে <strong>"বিসমিল্লাহ"</strong> বলবো
+                <br><small style="color: #666;">(খাওয়ার আগে, পড়ার আগে, খেলার আগে)</small>
+            </div>
+        </div>
+        
+        <div class="task" onclick="toggleTask(this)">
+            <div class="task-checkbox">✓</div>
+            <div>
+                <strong>কাজ ২:</strong> আকাশ দেখলে বলবো <strong>"আল্লাহ এটা সৃষ্টি করেছেন"</strong>
+            </div>
+        </div>
+        
+        <div class="task" onclick="toggleTask(this)">
+            <div class="task-checkbox">✓</div>
+            <div>
+                <strong>কাজ ৩:</strong> আজ একটি ভালো কাজ গোপনে করবো
+                <br><small style="color: #666;">(মা-বাবাকে সাহায্য / কারো উপকার)</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Mission -->
+    <section class="character-mission fade-in">
+        <h2>❤️ চরিত্র মিশন</h2>
+        <div style="font-size: 1.3rem; text-align: center; margin: 1rem 0;">
+            <strong>সবসময় সত্য কথা বলবো</strong>
+        </div>
+        <p style="text-align: center;">কঠিন হলেও সত্য বলবো।</p>
+        
+        <div style="margin-top: 1rem; text-align: center;">
+            <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" id="mission-done" onchange="completeMission()">
+                <strong>আজকের মিশন সম্পন্ন!</strong>
+            </label>
+        </div>
+    </section>
+
+    <!-- Quick Revision -->
+    <section class="card fade-in">
+        <h2>🔁 দ্রুত রিভিশন</h2>
+        <ul style="margin: 0.5rem 1rem;">
+            <li>✓ আল্লাহ আমার সৃষ্টিকর্তা</li>
+            <li>✓ আল্লাহ সবকিছু সৃষ্টি করেছেন</li>
+            <li>✓ আল্লাহ সবসময় আমাকে দেখেন</li>
+            <li>✓ আমি বিসমিল্লাহ বলে শুরু করবো</li>
+        </ul>
+    </section>
+
+    <!-- Tiny Test -->
+    <section class="quiz-section fade-in">
+        <h2>⭐ ছোট টেস্ট</h2>
+        
+        <p><strong>প্রশ্ন ১:</strong> সবকিছু কে সৃষ্টি করেছেন?</p>
+        <div class="quiz-option" onclick="checkTest(this, 'q1', true)">আল্লাহ</div>
+        <div class="quiz-option" onclick="checkTest(this, 'q1', false)">মানুষ</div>
+        
+        <p style="margin-top: 1rem;"><strong>প্রশ্ন ২:</strong> কাজ শুরু করার আগে কী বলবো?</p>
+        <div class="quiz-option" onclick="checkTest(this, 'q2', true)">বিসমিল্লাহ</div>
+        <div class="quiz-option" onclick="checkTest(this, 'q2', false)">আল্লাহ আকবার</div>
+        
+        <p style="margin-top: 1rem;"><strong>প্রশ্ন ৩:</strong> আমরা একা থাকলেও আল্লাহ কি দেখেন?</p>
+        <div class="quiz-option" onclick="checkTest(this, 'q3', true)">হ্যাঁ</div>
+        <div class="quiz-option" onclick="checkTest(this, 'q3', false)">না</div>
+    </section>
+
+    <!-- Homework -->
+    <section class="card fade-in">
+        <h2>🏡 হোমওয়ার্ক</h2>
+        <ol style="margin: 1rem; line-height: 2;">
+            <li>১. আজ <strong>১০ বার</strong> "বিসমিল্লাহ" বলো</li>
+            <li>২. মা-বাবাকে <strong>একটি কাজে</strong> সাহায্য করো</li>
+            <li>৩. ঘুমানোর আগে বলো: <strong>"আল্লাহ, আজকের দিনের জন্য ধন্যবাদ"</strong></li>
+        </ol>
+    </section>
+
+    <!-- Tomorrow Preview -->
+    <section class="card fade-in" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+        <h2>🚀 কাল শিখবো</h2>
+        <div style="font-size: 1.1rem; margin: 1rem 0;">
+            🌍 আল্লাহর আশ্চর্য উপহারগুলো
+        </div>
+        <ul>
+            <li>✓ চোখ কেন বিশেষ</li>
+            <li>✓ কান কীভাবে কাজ করে</li>
+            <li>✓ খাবার, পানি, বৃষ্টি — এগুলোর অর্থ</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#" class="btn-prev">← আগের দিন</a>
+        <a href="#" class="btn-next">পরের দিন →</a>
+    </footer>
+
+    <!-- Audio Player (Hidden) -->
+    <audio id="bismillah-audio">
+        <source src="https://download.quranicaudio.com/quran/Alafasy_128kbps/001.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Track progress
+        let correctAnswers = 0;
+        const totalQuestions = 6;
+
+        // Audio playback
+        function playAudio(type) {
+            const audio = document.getElementById('bismillah-audio');
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        // Quiz answer check
+        function checkAnswer(element, isCorrect) {
+            if (isCorrect) {
+                element.classList.add('correct');
+                if (!element.classList.contains('checked')) {
+                    element.classList.add('checked');
+                    correctAnswers++;
+                    updateStars();
+                }
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Test answer check
+        function checkTest(element, question, isCorrect) {
+            // Disable other options in same question
+            const parent = element.parentElement;
+            const siblings = parent.querySelectorAll('.quiz-option');
+            siblings.forEach(sib => {
+                sib.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                correctAnswers++;
+                updateStars();
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Update stars
+        function updateStars() {
+            const stars = document.querySelectorAll('.star');
+            const starsToEarn = Math.min(correctAnswers, 5);
+            stars.forEach((star, index) => {
+                if (index < starsToEarn) {
+                    star.classList.add('earned');
+                }
+            });
+            
+            if (correctAnswers >= 3) {
+                document.getElementById('quiz-result').style.display = 'block';
+            }
+        }
+
+        // Toggle task
+        function toggleTask(element) {
+            const checkbox = element.querySelector('.task-checkbox');
+            checkbox.classList.toggle('checked');
+        }
+
+        // Complete mission
+        function completeMission() {
+            const checkbox = document.getElementById('mission-done');
+            if (checkbox.checked) {
+                // Save to localStorage
+                localStorage.setItem('day1-mission', 'done');
+                alert('🎉 মিশন সম্পন্ন! তুমি সত্যবাদী হবে!');
+            }
+        }
+
+        // Load progress
+        function loadProgress() {
+            const mission = localStorage.getItem('day1-mission');
+            if (mission === 'done') {
+                document.getElementById('mission-done').checked = true;
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            loadProgress();
+        };
+    </script>
+</body>
+</html>
