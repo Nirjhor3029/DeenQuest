@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দিন ২ - আল্লাহর নেয়ামত | DeenQuest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #2e7d32;
+            --accent: #ff9800;
+            --gold: #ffc107;
+            --bg: #f1f8e9;
+            --text: #263238;
+            --text-light: #546e7a;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);
+            min-height: 35vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 37px;
+        }
+
+        header {
+            color: white;
+            padding: 40px 0 60px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-badge {
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-fill {
+            width: 6.67%;
+            height: 100%;
+            background: var(--gold);
+            border-radius: 0 3px 3px 0;
+        }
+
+        section {
+            background: var(--card-bg);
+            margin: -40px 0 20px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin: 25px 0 12px;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 8px;
+        }
+
+        .mission-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mission-list li {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s;
+        }
+
+        .mission-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .mission-list .icon {
+            font-size: 1.3rem;
+        }
+
+        .blessing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .blessing-card {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 18px 12px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .blessing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        .blessing-card .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .blessing-card .name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .game-area {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #ffe082;
+        }
+
+        .game-area h2 {
+            justify-content: center;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .blessing-input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .blessing-input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 28px;
+            font-size: 1.05rem;
+            border-radius: 14px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 94, 32, 0.3);
+        }
+
+        .stars-display {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            letter-spacing: 8px;
+        }
+
+        .count-badge {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .found-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .found-item {
+            background: white;
+            padding: 12px 18px;
+            margin: 8px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .found-item .check {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .arabic-box {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #ce93d8;
+        }
+
+        .arabic-text {
+            font-size: 2.5rem;
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            margin: 15px 0;
+            color: #4a148c;
+            line-height: 1.4;
+        }
+
+        .audio-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(156, 39, 176, 0.3);
+        }
+
+        .pronunciation-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 15px 0;
+        }
+
+        .pronunciation {
+            color: var(--primary);
+            font-style: italic;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .meaning {
+            background: #e3f2fd;
+            padding: 18px;
+            border-radius: 14px;
+            margin-top: 12px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .deep-lesson {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 16px;
+            margin-top: 15px;
+            border: 2px solid #ffb74d;
+        }
+
+        .deep-lesson strong {
+            color: #e65100;
+        }
+
+        .character-mission {
+            background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
+            border: 2px solid #81c784;
+        }
+
+        .checkbox-item {
+            background: white;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkbox-item:hover {
+            transform: translateX(5px);
+        }
+
+        .checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .checkbox.checked {
+            background: var(--primary);
+        }
+
+        .checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            background: #fce4ec;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-question:hover {
+            background: #f8bbd0;
+        }
+
+        .quiz-question.show {
+            background: #f48fb1;
+            color: white;
+        }
+
+        .quiz-question .question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .quiz-question .answer {
+            display: none;
+            font-weight: bold;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .quiz-question.show .answer {
+            display: block;
+            color: white;
+        }
+
+        .preview-section {
+            background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+            text-align: center;
+        }
+
+        .preview-section h2 {
+            justify-content: center;
+        }
+
+        .heart-icon {
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--primary);
+            color: white;
+            margin-top: 30px;
+        }
+
+        footer h2 {
+            color: white;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .homework-box {
+            background: linear-gradient(135deg, #fffde7, #fff9c4);
+            border: 2px solid #fff59d;
+        }
+
+        .homework-box h2 {
+            color: #f57f17;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .topic-badge {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            section {
+                padding: 18px;
+                margin: -30px 0 15px;
+                border-radius: 16px;
+            }
+
+            .blessing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .arabic-text {
+                font-size: 1.8rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gradient-bg">
+        <div class="container">
+            <header>
+                <div class="phase-badge">🌱 Phase 1 • দিন ২</div>
+                <h1>Islam Journey</h1>
+                <span class="topic-badge">🎁 আল্লাহর নেয়ামত</span>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Mission -->
+        <section>
+            <h2>🎯 আজকের লক্ষ্য</h2>
+            <ul class="mission-list">
+                <li><span class="icon">✅</span> নেয়ামত (blessing) মানে কী?</li>
+                <li><span class="icon">✅</span> আমাদের শরীরের বিশেষ উপহার</li>
+                <li><span class="icon">✅</span> খাবার, পানি, বৃষ্টি কেন নেয়ামত</li>
+                <li><span class="icon">✅</span> কীভাবে আলহামদুলিল্লাহ বলতে হয়</li>
+                <li><span class="icon">✅</span> ১টি ছোট zikr মুখস্থ করা</li>
+            </ul>
+        </section>
+
+        <!-- Knowledge -->
+        <section>
+            <h2>🧠 নেয়ামত কী?</h2>
+            <p><strong>নেয়ামত</strong> মানে হলো <strong>আল্লাহর দেওয়া উপহার</strong> 🎁</p>
+            <p>যে জিনিসগুলো আমরা প্রতিদিন ব্যবহার করি, কিন্তু অনেক সময় খেয়ালই করি না — এসবই আল্লাহর নেয়ামত।</p>
+
+            <h3>উদাহরণ:</h3>
+            <div class="blessing-grid">
+                <div class="blessing-card">
+                    <span class="icon">👀</span>
+                    <span class="name">চোখ</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">👂</span>
+                    <span class="name">কান</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">👃</span>
+                    <span class="name">নাক</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">❤️</span>
+                    <span class="name">হৃদয়</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">🍚</span>
+                    <span class="name">খাবার</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">💧</span>
+                    <span class="name">পানি</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">👨‍👩‍👧</span>
+                    <span class="name">পরিবার</span>
+                </div>
+                <div class="blessing-card">
+                    <span class="icon">🌙</span>
+                    <span class="name">চাঁদ</span>
+                </div>
+            </div>
+            <p style="margin-top: 15px;"><strong>আমরা এসব নিজেরা বানাইনি — আল্লাহ রহমত দিয়েছেন।</strong></p>
+        </section>
+
+        <!-- Eyes -->
+        <section>
+            <h2>👀 সবচেয়ে বিশেষ উপহার — চোখ</h2>
+            <p>একবার ভাবো, <strong>যদি চোখ না থাকতো?</strong></p>
+            <ul>
+                <li>❌ বই পড়তে পারতো না 📚</li>
+                <li>❌ মাকে দেখতে পারতো না 👨‍👩‍👧</li>
+                <li>❌ চাঁদ দেখতে পারতো না 🌙</li>
+                <li>❌ রং চিনতে পারতো না 🌈</li>
+            </ul>
+            <p style="margin-top: 18px; font-size: 1.1rem;"><strong>তাই চোখ শুধু শরীরের অংশ না — এটা আল্লাহর অসাধারণ
+                    উপহার! ✨</strong></p>
+        </section>
+
+        <!-- Water & Food -->
+        <section>
+            <h2>💧 পানি ও খাবার — জীবনের ভিত্তি</h2>
+            <ul>
+                <li>❌ পানি ছাড়া = <strong>জীবন নেই</strong> 💧</li>
+                <li>❌ খাবার ছাড়া = <strong>শক্তি নেই</strong> 🍚</li>
+                <li>❌ বৃষ্টি ছাড়া = <strong>খাবার নেই</strong> 🌧️🌾</li>
+            </ul>
+            <div class="deep-lesson">
+                <strong>💎 গভীর শিক্ষা:</strong> আমরা প্রতিদিন আল্লাহর ওপর নির্ভরশীল!
+            </div>
+        </section>
+
+        <!-- Game -->
+        <section class="game-area">
+            <h2>🎮 গেম: নেয়ামত শিকারী</h2>
+            <p>তোমার চারপাশ থেকে <strong>৫টা নেয়ামত</strong> খুঁজে বের করো!</p>
+            <p style="color: var(--text-light);">নিচে টাইপ করো এবং "যোগ করো" বাটনে ক্লিক করো</p>
+
+            <div class="input-group">
+                <input type="text" id="blessingInput" class="blessing-input" placeholder="যেমন: চোখ, বই, মা">
+                <button class="btn" onclick="addBlessing()">যোগ করো</button>
+            </div>
+
+            <div class="stars-display" id="starsDisplay">⭐⭐⭐☆☆</div>
+            <span class="count-badge" id="blessingCount">পাওয়া: ৩/৫</span>
+
+            <div class="found-list" id="foundList"></div>
+        </section>
+
+        <!-- Memorization -->
+        <section>
+            <h2>🧠 মুখস্থ: আলহামদুলিল্লাহ</h2>
+
+            <div class="arabic-box">
+                <p><strong>আরবি:</strong></p>
+                <p class="arabic-text">ٱلْحَمْدُ لِلَّٰهِ</p>
+                <p style="color: var(--text-light); margin-top: 15px; font-size: 0.9rem;">
+                    💡 Tip: এটা একটি zikr (উল্লেখন)। তুমি তোমার ইমাম/শিক্ষকের কাছ থেকে সঠিক উচ্চারণ শিখো।
+                </p>
+            </div>
+
+            <div class="pronunciation-box">
+                <p class="pronunciation">উচ্চারণ: আলহামদুলিল্লাহ</p>
+            </div>
+
+            <div class="meaning">
+                <strong>অর্থ:</strong> সব প্রশংসা আল্লাহর জন্য
+            </div>
+
+            <div class="deep-lesson">
+                <strong>💎 গভীর জ্ঞান:</strong><br>
+                যখন আমরা আলহামদুলিল্লাহ বলি, তখন ৩টা জিনিস করি:<br>
+                <br>
+                ১. ✅ নেয়ামত চিনে নেই<br>
+                ২. ✅ আল্লাহকে ধন্যবাদ দিই<br>
+                ৩. ❤️ হৃদয়ে কৃতজ্ঞতা বাড়াই<br>
+                <br>
+                <em>এতে অহংকার কমে, ঈমান বাড়ে!</em>
+            </div>
+        </section>
+
+        <!-- Character Mission -->
+        <section class="character-mission">
+            <h2>❤️ চরিত্র মিশন</h2>
+            <p><strong>আজকের কাজ:</strong> অভিযোগ কম, শুকরিয়া বেশি</p>
+            <p>আজ অন্তত <strong>৩ বার</strong> "আলহামদুলিল্লাহ" বলো এই জিনিসগুলোর জন্য:</p>
+
+            <div class="checkbox-item" onclick="toggle(this)">
+                <div class="checkbox"></div>
+                <span style="font-size: 1.3rem;">🍔 খাবার</span>
+            </div>
+            <div class="checkbox-item" onclick="toggle(this)">
+                <div class="checkbox"></div>
+                <span style="font-size: 1.3rem;">👨‍👩‍👧 পরিবার</span>
+            </div>
+            <div class="checkbox-item" onclick="toggle(this)">
+                <div class="checkbox"></div>
+                <span style="font-size: 1.3rem;">💤 ঘুম</span>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
+            <h2>⭐ ছোট কুইজ</h2>
+
+            <div class="quiz-question" onclick="toggleQuiz(this)">
+                <div class="question">প্রশ্ন ১: চোখ কার নেয়ামত?</div>
+                <div class="answer">✓ উত্তর: আল্লাহর নেয়ামত</div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleQuiz(this)">
+                <div class="question">প্রশ্ন ২: খাবার খাওয়ার পর কী বলবো?</div>
+                <div class="answer">✓ উত্তর: আলহামদুলিল্লাহ</div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleQuiz(this)">
+                <div class="question">প্রশ্ন ৩: পানি কার দেওয়া উপহার?</div>
+                <div class="answer">✓ উত্তর: আল্লাহর উপহার</div>
+            </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="homework-box">
+            <h2>🏡 বাড়ির কাজ</h2>
+            <p>আজ রাতে ঘুমানোর আগে <strong>৩টা নেয়ামতের</strong> নাম বলো</p>
+            <p>এবং প্রতিবার বলো: <strong>আলহামদুলিল্লাহ</strong></p>
+        </section>
+
+        <!-- Preview -->
+        <section class="preview-section">
+            <h2>🚀 পরের দিনের পূর্বাভাস — দিন ৩</h2>
+            <div class="heart-icon">❤️</div>
+            <p style="font-size: 1.2rem;"><strong>আল্লাহ আমাকে ভালোবাসেন কীভাবে?</strong></p>
+            <p>(রহমত, ক্ষমা, সুরক্ষা, মা-বাবার ভালোবাসা)</p>
+            <p style="margin-top: 15px;"><em>এটা হৃদয় স্পর্শ করবে!</em></p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2>🎉 বাহা! দিন ২ সম্পন্ন!</h2>
+            <div class="nav-buttons">
+                <a href="../day-1/index.html" class="nav-btn">← দিন ১</a>
+                <a href="../day-3/index.html" class="nav-btn">দিন ৩ →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let blessingCount = 3;
+
+        function addBlessing() {
+            const input = document.getElementById('blessingInput');
+            const blessing = input.value.trim();
+
+            if (blessing) {
+                const list = document.getElementById('foundList');
+                const item = document.createElement('div');
+                item.className = 'found-item';
+                item.innerHTML = `<span class="check">✓</span> ${blessing} - আলহামদুলিল্লাহ! 🙏`;
+                list.appendChild(item);
+
+                blessingCount++;
+                updateStars();
+                input.value = '';
+
+                if (blessingCount >= 5) {
+                    alert('🎉 অভিনন্দন! তুমি ৫টা নেয়ামত খুঁজে পেয়েছ! তুমি ৫টা স্টার পেয়েছ!');
+                }
+            }
+        }
+
+        function updateStars() {
+            const stars = document.getElementById('starsDisplay');
+            const count = document.getElementById('blessingCount');
+
+            let starStr = '';
+            for (let i = 0; i < 5; i++) {
+                starStr += i < blessingCount ? '⭐' : '☆';
+            }
+            stars.textContent = starStr;
+            count.textContent = `পাওয়া: ${blessingCount}/৫`;
+        }
+
+        function toggle(element) {
+            const checkbox = element.querySelector('.checkbox');
+            checkbox.classList.toggle('checked');
+        }
+
+        function toggleQuiz(element) {
+            element.classList.toggle('show');
+        }
+
+
+    </script>
+</body>
+
+</html>
